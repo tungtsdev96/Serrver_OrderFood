@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+   
+</head>
+
+<body>
+    <%- include('header.ejs') %>
+        <div class="container">
+            <div class="row category-select">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-2">
+                    <h4>Select type</h4>
+                </div>
+                <div class="col-md-3">
+                    <select id="type" class="form-control">
+                        <option value="1">Current week</option>
+                        <option value="2">Current month</option>
+                        <option value="3">Current year</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary" id="btnView">
+                        View
+                    </button>
+                </div>
+
+            </div>
+            <div id="view"></div>
+        </div>
+</body>
+<script src="http://localhost:3000/script/highcharts.js"></script>
+<script src="http://localhost:3000/script/thongke_tien.js"></script>
+</html>

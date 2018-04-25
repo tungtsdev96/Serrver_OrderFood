@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="http://localhost:3000/css/header.css" type="text/css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://localhost:3000/script/header.js"></script>
+</head>
+    
+<body>
+    <div class="container">
+        <nav class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <span id="lblRestaurentName"></span>
+                </a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="http://localhost:3000/products">Product</a>
+                </li>
+                <li>
+                    <a href="http://localhost:3000/category">Category</a>
+                </li>
+                <li>
+                    <a href="http://localhost:3000/update-restaurent">Update Restaurent Infor</a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Analysis
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="http://localhost:3000/thong-ke-tien">Analysis revanue</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost:3000/thong-ke-product">Analysis product</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost:3000/thong-ke-date">Analysis via date</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://localhost:3000/order-table">Order Table</a>
+                </li>
+                <li>
+                    <a href="http://localhost:3000/order/manager">Order Manager</a>
+                </li>
+                <li>
+                    <a href="http://localhost:3000/order/new-order">
+                        <div id="ORDER-NOTIFI">
+                            <div class="order">Order(</div>
+                            <div class="order" id="notice-order">NEW ORDERS</div>
+                            <div class="order" id="count-order">0</div>
+                            <div class="order" id="notice-order"></div>
+                            <div class="order">)</div>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+                <li>
+                    <a href="#">Logout</a>
+                </li>
+            </ul>
+
+        </nav>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<html>
+
+<head>
+    <link href="css/products.css" type="text/css" rel="stylesheet">
+    <title>ORDER TABLE</title>
+</head>
+
+<body>
+    <header>
+        <%- include('header.ejs') %>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="row category-select">
+                <h2 style="text-align: center">LIST ORDERS OF TODAY</h2>
+            </div>
+            <div id="view">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Start Time</th>
+                            <th>Finish time</th>
+                            <th>Number Of People</th>
+                            <th>Code</th>
+                            <th>Status</th>
+                            <th>Comming Or Date</th>
+                            <th>Detail</th>
+                        </tr>
+
+                    </thead>
+                    <tbody style="font-size: 12px">
+                        <%orders.forEach(function(element){ %>
+                            <tr>
+                                <td>
+                                    <%= element.id %>
+                                </td>
+                                
+                                <td>
+                                    <%= (element.start_time + "").substring(0, 24) %>
+                                </td>
+                                <td>
+                                    <%= (element.end_time + "").substring(0, 24) %>
+                                </td>
+                                <td>
+                                    <%= element.number_people %>
+                                </td>
+                                <td>
+                                    <%= element.code %>
+                                </td>
+
+
+                                <% if( element.status == 1){ %>
+                                    <td style="color: BLUE">
+                                        WAITING
+                                    </td>
+                                <%} else if(element.status == 2){%>
+                                    <td style="color: YELLOW">
+                                        IN PROGRESS
+                                    </td>
+                                <%} else if(element.status == 3){%>
+                                    <td style="color: GREEN">
+                                        COMPLETED
+                                    </td>
+                                <%} else if(element.status == 4){%>
+                                    <td style="color: RED">
+                                        CANCELED BY CUSTOMER
+                                    </td>
+                                <%} else if(element.status == 5){%>
+                                    <td style="color: RED">
+                                        CANCELED OUT OF TIME
+                                    </td>
+                                <%}%>
+                                <td><%= element.lateTime%></td>
+                                <td><a href="http://localhost:3000/order-table-detail?id=<%= element.id %>" class="btn btn-info">Detail</a></td>
+                            </tr>
+
+                            <%}) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <%- include('footer.ejs') %>
+    </footer>
+</body>
+<script src="script/products.js"></script>
+
+</html>

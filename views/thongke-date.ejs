@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet"> -->
+
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
+
+</head>
+
+<body>
+    <%- include('header.ejs') %>
+        <div class="container">
+            <div class="row category-select">
+                <div class="col-md-3">
+                    <h4>Select date</h4>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary" id="btnView">
+                        View
+                    </button>
+                </div>
+
+            </div>
+            <div id="view"></div>
+        </div>
+</body>
+<script src="http://localhost:3000/script/highcharts.js"></script>
+<link href="http://localhost:3000/css/header.css" type="text/css" rel="stylesheet">
+
+</html>

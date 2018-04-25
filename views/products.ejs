@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <link href="css/products.css" type="text/css" rel="stylesheet">  
+    </head>
+    <body>
+        <header>
+                <%- include('header.ejs') %>
+        </header>
+        
+        <section>
+            <div class="container">
+            <div class="row category-select">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-2">
+                    <h4>Select Category</h4>
+                </div>
+                <div class="col-md-3">
+                    <select id="listCategories" class="form-control">
+                      
+                    </select>
+                </div>
+                <div class="col-md-2">
+                        <button class="btn btn-primary" id="btnViewProducts">
+                            View Product
+                        </button>
+                </div>
+                <div class="col-md-3">
+                        <a href="http://localhost:3000/product/add-product" class="btn btn-danger pull-right" id="btnAddProduct">
+                            Add Product
+                        </a>
+                </div>
+            </div>
+            <div id="tblProduct"></div>
+            </div>
+        </section>
+        
+        
+        <footer>
+                <%- include('footer.ejs') %>
+        </footer>
+    </body>
+    <script src="script/products.js"></script> 
+</html>

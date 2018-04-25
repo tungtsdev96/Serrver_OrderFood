@@ -1,0 +1,131 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <header>
+        <%- include('header.ejs') %>
+    </header>
+
+    <div id="order-infor">
+        <div class="container">
+            <h3 style="text-align: center">Order Detail</h3>
+            <div class="col-md-6">
+                <div class="form-inline" style="margin-top: 20px">
+                    <label for="customer">Customer</label>
+                    <input id="customer" style="width: 400px" class="pull-right form-control" value="<%=order.customer_id %>" readonly>
+                </div>
+                <div class="form-inline" style="margin-top: 20px">
+                    <label for="order_time">Order Time</label>
+                    <input id="order_time" style="width: 400px;" class="pull-right form-control" value="<%= (order.order_time + '').substring(0, (order.order_time + '').length - 32)%>"
+                        readonly>
+                </div>
+                <div class="form-inline" style="margin-top: 20px">
+                    <label for="delivery_time">Delivery Time</label>
+                    <input id="delivery_time" style="width: 400px;" class="pull-right form-control" value="<%=(order.delivery_time + '').substring(0, (order.delivery_time + '').length - 32) %>"
+                        readonly>
+                </div>
+                <div class="form-inline" style="margin-top: 20px">
+                    <label for="cost">Cost</label>
+                    <input id="cost" style="width: 400px;" class="pull-right form-control" value="<%=order.order_cost %>" readonly>
+                </div>
+                <div class="form-inline" style="margin-top: 20px">
+                    <label for="state">State</label>
+                    <%if(order.order_status == 0){ %>
+                        <input id="state" style="width: 400px; color:#1a75ff ; font-weight: bold" class="pull-right form-control" value="WAITING"
+                            readonly>
+                        <%}%>
+                            <%if(order.order_status == 1){ %>
+                                <input id="state" style="width: 400px; color: #1aff66; font-weight: bold" class="pull-right form-control" value="ACCEPTED"
+                                    readonly>
+                                <%}%>
+                                    <%if(order.order_status == 2){ %>
+                                        <input id="state" style="width: 400px; color:#2929a3 ; font-weight: bold" class="pull-right form-control" value="COMPLETED"
+                                            readonly>
+                                        <%}%>
+                                            <%if(order.order_status == -1){ %>
+                                                <input id="state" style="width: 400px; color:#ff0000 ; font-weight: bold" class="pull-right form-control" value="DENIED"
+                                                    readonly>
+                                                <%}%>
+                </div>
+            </div>
+            <div class="col-md-6" style="margin-bottom: 20px">
+                <div class="form-inline" style="margin-top: 20px">
+                    <label for="phone">Phone</label>
+                    <input id="phone" style="width: 400px" class="pull-right form-control" value="<%=order.phone_number %>" readonly>
+                </div>
+                <div class="form-inline" style="margin-top: 20px">
+                    <label for="address">Address</label>
+                    <input id="address" style="width: 400px" class="pull-right form-control" value="<%=order.order_address %>" readonly>
+                </div>
+                <div class="form-inline" style="margin-top: 20px">
+                    <label for="distance">Distance</label>
+                    <input id="distance" style="width: 400px" class="pull-right form-control" value="<%=order.order_distance %>" readonly>
+                </div>
+                <div class="form-inline" style="margin-top: 20px">
+                    <label for="description">Desciption</label>
+                    <input id="description" style="width: 400px" class="pull-right form-control" value="<%=order.order_description %>" readonly>
+                </div>
+                <div class="form-inline" style="margin-top: 20px">
+                    <label for="blank"></label>
+                    
+                </div>
+            </div>
+
+            <h4 style="margin-top: 250px">Order Product List</h4>
+            <table class="table table-striped" style="margin-bottom: 30px">
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Quantity</th>
+                </tr>
+                <% lstProducts.forEach(function(p) { %>
+                    <tr style="font-size: 12px">
+                        <td>
+                            <%= p.product_id%>
+                        </td>
+                        <td>
+                            <%= p.product_name%>
+                        </td>
+                        <td>
+                            <%= p.product_price%>
+                        </td>
+                        <td>
+                            <%= p.detail_quantity%>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </table>
+
+            <div class="row pull-right">
+                <%if(order.order_status == 0){ %>
+                    <a class="btn btn-success" href="http://localhost:3000/order/update-status-by-restaurent/<%=order.order_id %>/1" style="margin-right: 10px; width: 100px">Accept</a>
+                    <a class="btn btn-danger" href="http://localhost:3000/order/update-status-by-restaurent/<%=order.order_id %>/-1" style="margin-right: 10px; width: 100px">Deny</a>
+                    <%}%>
+                        <%if(order.order_status == 1){ %>
+                            <a class="btn btn-primary" href="http://localhost:3000/order/update-status-by-restaurent/<%=order.order_id %>/2" style="margin-right: 10px; width: 100px">Completed</a>
+                            <a class="btn btn-danger" href="http://localhost:3000/order/update-status-by-restaurent/<%=order.order_id %>/-1" style="margin-right: 10px; width: 100px">Deny</a>
+                            <%}%>
+                                <%if(order.order_status == 2){ %>
+
+                                    <%}%>
+                                        <%if(order.order_status == -1){ %>
+
+                                            <%}%>
+                                                <a class="btn btn-info" href="javascript:history.back()" style="margin-right: 10px; width: 100px">OK</a>
+
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="container">
+
+        </div>
+    </section>
+
+</body>
+<script src="http://localhost:3000/script/order-detail.js"></script>
+</html>

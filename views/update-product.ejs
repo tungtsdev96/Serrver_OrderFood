@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+                <link href="css/update.css" type="text/css" rel="stylesheet">-->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+
+</head>
+
+<body>
+    <header>
+        <%- include('header.ejs') %>
+    </header>
+    <section>
+        <div class="container">
+            <div class="content">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="">
+                        <form class="form-group" action="http://localhost:3000/product/update-product" method="POST" encType="multipart/form-data">
+                            <div class="form-group">
+                                <label for="product_id">ID</label>
+                                <input type="text" readonly class="form-control" id="product_id" name="product_id" value="<%= product.product_id %>">
+                            </div>
+                            <div class="form-group">
+                                <label for="product_name">Name</label>
+                                <input type="text" class="form-control" id="product_name" name="product_name" value="<%= product.product_name %>">
+                            </div>
+                            <div class="form-group">
+                                <label for="product_description">Description</label>
+                                <textarea rows="5" class="form-control" id="product_description" name="product_description"><%= product.product_description %></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="product_price">Price</label>
+                                <input type="text" class="form-control" id="product_price" name="product_price" value="<%= product.product_price %>">
+                            </div>
+                            <div class="form-group">
+                                <label for="product_category">Category</label>
+                                <select class="form-control" id="product_category" name="product_category">
+
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="product_image">Image</label>
+                                <img src="<%= product.product_image%>" alt="No Image" class="product-image">
+                                <input type="file" name="product_image" id="product_image" class="image-preview-input-title">
+                            </div>
+                            <input type="submit" value="<%= type  %>" class="btn btn-primary pull-right" id="btnUpdate">
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer">
+            <%- include('footer.ejs') %>
+        </div>
+    </footer>
+    <link href="http://localhost:3000/css/update-product.css" type="text/css" rel="stylesheet">
+    <script src="http://localhost:3000/script/update-product.js"></script>
+</body>
+
+</html>

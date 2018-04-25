@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <link href="css/products.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <%- include('header.ejs') %>
+    </header>
+
+    <section>
+        <div class="container">
+            <table class="table table-hover">
+                <tr style="font-size: 15px; font-weight: 400;">
+                    <th style="text-align: center">ID</th>
+                    <th style="text-align: center">Oder time</th>
+                    <th style="text-align: center">Delivery time</th>
+                    <th style="text-align: center">Total Cost</th>
+                    <th style="text-align: center">Address</th>
+                    <th style="text-align: center">Destance</th>
+                    <th style="text-align: center">Phone Number</th>
+                    <th style="text-align: center">State</th>
+                    <th style="text-align: center">Description</th>
+                    <th style="text-align: center">Detail</th>
+                    <th style="text-align: center">Deny</th>
+                </tr>
+                <% newOrders.forEach(function(newOrder) { %>
+                    <tr style="font-size: 12px">
+                        <td><%= newOrder.order_id%></td>
+                        <td><%= (newOrder.order_time + '').substring(0, (newOrder.order_time + '').length - 32)%></td>
+                        <td><%= (newOrder.delivery_time + '').substring(0, (newOrder.delivery_time + '').length - 32)%></td>
+                        <td><%= newOrder.order_cost%></td>
+                        <td><%= newOrder.order_address%></td>
+                        <td><%= newOrder.order_distance%></td>
+                        <td><%= newOrder.phone_number%></td>
+                        <td><%= newOrder.order_status%></td>
+                        <td><%= newOrder.order_description%></td>
+                        <td><a href="http://localhost:3000/order-detail/detail?orderId=<%=newOrder.order_id%>" class="btn btn-success">Detail</a></td>
+                        <td><a href="http://localhost:3000/order/update-status-by-restaurent/<%=newOrder.order_id %>/-1" class="btn btn-danger">Deny</a></td>
+                    </tr>
+                <% }); %>
+            </table>
+        </div>
+    </section>
+
+</body>
+
+</html>
