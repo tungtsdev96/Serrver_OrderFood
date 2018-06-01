@@ -82,7 +82,7 @@ var tableDao = {
     },
 
     getComingOrderTable: function (restaurentId, callback) {
-        var sql = "SELECT * FROM ptpmcn.order_table WHERE day(current_timestamp()) = day(order_table.start_time)";
+        var sql = "SELECT * FROM order_food.order_table WHERE day(current_timestamp()) = day(order_table.start_time)";
         sql = sql + " AND month(current_timestamp()) = month(order_table.start_time) ";
         sql = sql + " AND year(current_timestamp()) = year(order_table.start_time) ";
         sql = sql + " and restaurent_id =  " + restaurentId;

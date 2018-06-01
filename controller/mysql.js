@@ -25,7 +25,7 @@ var pool = mysql.createPool({
     host:   "localhost",
     user:   "root",
     password: "1996",
-    database: "ptpmcn",
+    database: "order_food",
 });
 
 module.exports = pool;

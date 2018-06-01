@@ -19,12 +19,12 @@
                 </div>
                 <div class="form-inline" style="margin-top: 20px">
                     <label for="order_time">Order Time</label>
-                    <input id="order_time" style="width: 400px;" class="pull-right form-control" value="<%= (order.order_time + '').substring(0, (order.order_time + '').length - 32)%>"
+                    <input id="order_time" style="width: 400px;" class="pull-right form-control" value="<%= (order.order_time + '')%>"
                         readonly>
                 </div>
                 <div class="form-inline" style="margin-top: 20px">
                     <label for="delivery_time">Delivery Time</label>
-                    <input id="delivery_time" style="width: 400px;" class="pull-right form-control" value="<%=(order.delivery_time + '').substring(0, (order.delivery_time + '').length - 32) %>"
+                    <input id="delivery_time" style="width: 400px;" class="pull-right form-control" value="<%=(order.delivery_time + '') %>"
                         readonly>
                 </div>
                 <div class="form-inline" style="margin-top: 20px">
